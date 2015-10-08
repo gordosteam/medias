@@ -1,0 +1,40 @@
+{
+  "name": "posto",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "nome": {
+      "type": "string",
+      "required": true
+    },
+    "cnpj": {
+      "type": "string",
+      "required": true
+    },
+    "endereco": {
+      "type": "string",
+      "required": true
+    },
+    "telefone": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "cidade": {
+      "type": "belongsTo",
+      "model": "cidade",
+      "foreignKey": "cidadeId"
+    },
+    "usuario": {
+      "type": "belongsTo",
+      "model": "usuario",
+      "foreignKey": "usuarioId"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

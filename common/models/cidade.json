@@ -1,0 +1,28 @@
+{
+  "name": "cidade",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "nome": {
+      "type": "string",
+      "required": true
+    },
+    "uf": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "posto": {
+      "type": "hasMany",
+      "model": "posto",
+      "foreignKey": "cidadeId"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}
