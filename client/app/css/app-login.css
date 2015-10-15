@@ -1,0 +1,38 @@
+/* -----------------------------------*/
+/* ---------->>> LOGIN  <<<-----------*/
+/* -----------------------------------*/
+* {
+  -font-family: "Maven Pro","Helvetica Neue",Helvetica,sans-serif;
+}
+.form-signin {
+  margin: 0 auto;
+  max-width: 330px;
+  padding: 15px;
+}
+.form-signin .form-control {
+  margin-bottom: 10px;
+  padding: 10px;
+  position: relative;
+}
+.account-wall {
+  background-color: #f7f7f7;
+  -background-color: #000;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+  margin-top: 20px;
+  padding: 40px 0px 20px 0px;
+}
+.profile-img {
+  display: block;
+  height: 96px;
+  margin: 0 auto 10px;
+  width: 96px;
+}
+.need-help {
+  margin-top: 10px;
+}
+.new-account {
+  display: block;
+  margin-top: 10px;
+}

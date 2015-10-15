@@ -5,13 +5,18 @@
         <h1 class="text-center">Login</h1>
         <div class="account-wall">
           <img class="profile-img" style="height: 120px; width: 115px;" src="img/logo-login.png" alt="" >
-          <div id="error-login" class="text-center" style="display:none; color:#FF0000" >The email or password you entered is incorrect!</div>
-          <form id="form-login" class="form-signin" novalidate="novalidate" method="get" action="" >
-            <input id="username" name="username" type="text" class="form-control required" placeholder="Usuário" >
-            <input id="password" name="password" type="password" class="form-control required" placeholder="Senha" >
-            <input id="btn-login" class="btn btn-lg btn-primary btn-block" type="submit" value="Entrar" data-loading-text="Processando..." >
+
+          <form class="form-signin" data-ng-submit="login()" >
+            <input ng-model="user.email" type="text" class="form-control required" placeholder="Email" >
+            <p class="hint" ng-show="form.email.$error.required && submitted">Email is required</p>
+
+            <input ng-model="user.password" type="password" class="form-control required" placeholder="Senha">
+            <p class="hint" ng-show="form.password.$error.required && submitted">Password is required</p>
+
+            <input class="btn btn-lg btn-primary btn-block" type="submit" value="Entrar" data-loading-text="Processando..." >
             <a href="#" class="pull-right need-help">Precisa de ajuda?</a><span class="clearfix"></span>
           </form>
+
         </div>
         <a href="#" class="text-center new-account">Novo Usuário</a>
       </div>
