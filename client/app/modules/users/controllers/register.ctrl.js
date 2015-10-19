@@ -11,7 +11,7 @@
    **/
   angular
     .module('com.module.users')
-    .controller('RegisterCtrl', function ($scope, $routeParams, $location, $filter, CoreService, User, AppAuth, gettextCatalog) {
+    .controller('RegisterCtrl', function ($scope, $routeParams, $location, $filter, CoreService, User, AppAuth) {
 
       $scope.registration = {
         firstName: '',
@@ -23,51 +23,51 @@
       $scope.schema = [{
         label: '',
         property: 'firstName',
-        placeholder: gettextCatalog.getString('First Name'),
+        placeholder: 'First Name',
         type: 'text',
         attr: {
           ngMinlength: 4,
           required: true
         },
         msgs: {
-          minlength: gettextCatalog.getString(
-            'Needs to have at least 4 characters')
+          minlength: 
+            'Needs to have at least 4 characters'
         }
       }, {
         label: '',
         property: 'lastName',
-        placeholder: gettextCatalog.getString('Last Name'),
+        placeholder: 'Last Name',
         type: 'text',
         attr: {
           ngMinlength: 4,
           required: true
         },
         msgs: {
-          minlength: gettextCatalog.getString(
-            'Needs to have at least 4 characters')
+          minlength: 
+            'Needs to have at least 4 characters'
         }
       }, {
         label: '',
         property: 'email',
-        placeholder: gettextCatalog.getString('Email'),
+        placeholder: 'Email',
         type: 'email',
-        help: gettextCatalog.getString(
-          'Don\'t worry we won\'t spam your inbox'),
+        help: 
+          'Don\'t worry we won\'t spam your inbox',
         attr: {
           required: true,
           ngMinlength: 4
         },
         msgs: {
-          required: gettextCatalog.getString('You need an email address'),
-          email: gettextCatalog.getString('Email address needs to be valid'),
-          valid: gettextCatalog.getString('Nice email address!')
+          required: 'You need an email address',
+          email: 'Email address needs to be valid',
+          valid: 'Nice email address!'
         }
       }, {
         type: 'multiple',
         fields: [{
           label: '',
           property: 'password',
-          placeholder: gettextCatalog.getString('Password'),
+          placeholder: 'Password',
           type: 'password',
           attr: {
             required: true,
@@ -76,7 +76,7 @@
         }, {
           label: '',
           property: 'confirmPassword',
-          placeholder: gettextCatalog.getString('Confirm Password'),
+          placeholder: 'Confirm Password',
           type: 'password',
           attr: {
             confirmPassword: 'user.password',
@@ -84,8 +84,8 @@
             ngMinlength: 6
           },
           msgs: {
-            match: gettextCatalog.getString(
-              'Your passwords need to match')
+            match: 
+              'Your passwords need to match'
           }
         }],
         columns: 6
@@ -118,14 +118,13 @@
               }, $scope.registration,
               function () {
                 AppAuth.currentUser = $scope.loginResult.user;
-                CoreService.toastSuccess(gettextCatalog.getString(
-                  'Registered'), gettextCatalog.getString(
-                  'You are registered!'));
+                CoreService.toastSuccess('Registered', 
+                  'You are registered!');
                 $location.path('/');
               },
               function (res) {
-                CoreService.toastWarning(gettextCatalog.getString(
-                  'Error signin in after registration!'), res.data.error
+                CoreService.toastWarning(
+                  'Error signin in after registration!', res.data.error
                   .message);
                 $scope.loginError = res.data.error;
               }
@@ -133,8 +132,8 @@
 
           },
           function (res) {
-            CoreService.toastError(gettextCatalog.getString(
-              'Error registering!'), res.data.error.message);
+            CoreService.toastError(
+              'Error registering!', res.data.error.message);
             $scope.registerError = res.data.error;
           }
         );

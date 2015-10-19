@@ -1,11 +1,16 @@
 angular.module('app', [
+  'angular-loading-bar', 
   'ui.router',
   'ui.bootstrap',
   'lbServices',
   'ngRoute',
   'oitozero.ngSweetAlert',
-  'com.module.users',
+  'ngAnimate',
+  'toasty',
+  'config',
   'com.module.core',
+  'com.module.users'
+ 
 ])
 .config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
 
@@ -38,7 +43,7 @@ angular.module('app', [
       templateUrl: 'views/sign-up-success.html'
     });
 
-    $urlRouterProvider.otherwise('login');
+   // $urlRouterProvider.otherwise('login');
 }])
 .run(['$rootScope', '$state', function($rootScope, $state) {
 
