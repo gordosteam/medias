@@ -2,8 +2,10 @@ angular.module('app', [
   'ui.router',
   'ui.bootstrap',
   'lbServices',
+  'ngRoute',
   'oitozero.ngSweetAlert',
-  'com.module.users'
+  'com.module.users',
+  'com.module.core',
 ])
 .config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
 
