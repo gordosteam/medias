@@ -1,59 +1,91 @@
-angular.module('app', [
-  'angular-loading-bar', 
-  'ui.router',
-  'ui.bootstrap',
-  'lbServices',
-  'ngRoute',
-  'oitozero.ngSweetAlert',
-  'ngAnimate',
-  'toasty',
-  'config',
-  'com.module.core',
-  'com.module.users'
- 
-])
-.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
+(function () {
+  'use strict';
+  angular.module('app', [
+    'angular-loading-bar',
+    'ui.router',
+    'ui.bootstrap',
+    'lbServices',
+    'ngRoute',
+    'ngCookies',
+    'oitozero.ngSweetAlert',
+    'ngAnimate',
+    'config',
+    'formly',
+    'formlyBootstrap',
+    'toasty',    
+    'com.module.core',
+    'com.module.users'
 
-  $stateProvider
-    .state('forbidden', {
-      url: '/forbidden',
-      templateUrl: 'views/forbidden.html',
-    })
-    .state('login', {
-      url: '/login',
-      templateUrl: 'modules/users/views/login.html',
-      controller: 'LoginCtrl'
-    })
-    /*.state('login', {
-      url: '/login',
-      templateUrl: 'views/login.html',
-      controller: 'AuthLoginController'
-    })*/
-    .state('logout', {
-      url: '/logout',
-      controller: 'AuthLogoutController'
-    })
-    .state('sign-up', {
-      url: '/sign-up',
-      templateUrl: 'views/sign-up-form.html',
-      controller: 'SignUpController',
-    })
-    .state('sign-up-success', {
-      url: '/sign-up/success',
-      templateUrl: 'views/sign-up-success.html'
+  ])
+    .run(function (formlyConfig) {
+      /*
+       ngModelAttrs stuff
+       */
+      var ngModelAttrs = {};
+
+      function camelize(string) {
+        string = string.replace(/[\-_\s]+(.)?/g, function (match, chr) {
+          return chr ? chr.toUpperCase() : '';
+        });
+        // Ensure 1st char is always lowercase
+        return string.replace(/^([A-Z])/, function (match, chr) {
+          return chr ? chr.toLowerCase() : '';
+        });
+      }
+
+      /*
+       timepicker
+       */
+      ngModelAttrs = {};
+
+      // attributes
+      angular.forEach([
+        'meridians',
+        'readonly-input',
+        'mousewheel',
+        'arrowkeys'
+      ], function (attr) {
+        ngModelAttrs[camelize(attr)] = { attribute: attr };
+      });
+
+      // bindings
+      angular.forEach([
+        'hour-step',
+        'minute-step',
+        'show-meridian'
+      ], function (binding) {
+        ngModelAttrs[camelize(binding)] = { bound: binding };
+      });
+
+      formlyConfig.setType({
+        name: 'timepicker',
+        template: '<timepicker ng-model="model[options.key]"></timepicker>',
+        wrapper: [
+          'bootstrapLabel',
+          'bootstrapHasError'
+        ],
+        defaultOptions: {
+          ngModelAttrs: ngModelAttrs,
+          templateOptions: {
+            timepickerOptions: {}
+          }
+        }
+      });
+
+      formlyConfig.setType({
+        name: 'datepicker',
+        template: '<datepicker ng-model="model[options.key]" ></datepicker>',
+        wrapper: [
+          'bootstrapLabel',
+          'bootstrapHasError'
+        ],
+        defaultOptions: {
+          ngModelAttrs: ngModelAttrs,
+          templateOptions: {
+            datepickerOptions: {}
+          }
+        }
+      });
     });
 
-   // $urlRouterProvider.otherwise('login');
-}])
-.run(['$rootScope', '$state', function($rootScope, $state) {
-
-  $rootScope.$on('$stateChangeStart', function(event, next) {
-
-    // redirect to login page if not logged in
-    if (next.authenticate && !$rootScope.currentUser) {
-      event.preventDefault(); //prevent current page from loading
-      $state.go('forbidden');
-    }
-  });
-
-}]);
+})();

@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="app">
+
 <head>
   <meta charset="utf-8">
   <title>My Gas Notification</title>
 
-  <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet" />
   <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.5/paper/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="bower_components/angular-toasty/css/ng-toasty.css" />
   <link rel="stylesheet" href="bower_components/sweetalert/lib/sweet-alert.css" />
   <link href="css/app-login.css" rel="stylesheet">
   <!--<link href="css/app.css" rel="stylesheet">-->
 </head>
+
 <body>
   <!--<header>
     <h1>Coffee shop reviews</h1>
@@ -41,27 +43,79 @@
 
   <main ui-view></main>
 
+  <script src="bower_components/jquery/dist/jquery.js"></script>
   <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
   <script src="bower_components/angular-resource/angular-resource.js"></script>
+  <script src="bower_components/angular-cookies/angular-cookies.js"></script>
   <script src="bower_components/angular-route/angular-route.js"></script>
-  <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
-  <script src="bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
-  <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
-  <script src="bower_components/sweetalert/lib/sweet-alert.js"></script>
-  <script src="bower_components/angular-sweetalert/SweetAlert.js"></script>
+  <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
   <script src="bower_components/angular-animate/angular-animate.js"></script>
   <script src="bower_components/angular-touch/angular-touch.js"></script>
+  <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+  <script src="bower_components/api-check/dist/api-check.js"></script>
+  <script src="bower_components/angular-formly/dist/formly.js"></script>
+  <script src="bower_components/angular-formly-templates-bootstrap/dist/angular-formly-templates-bootstrap.js"></script>
   <script src="bower_components/angular-toasty/js/ng-toasty.js"></script>
+  <script src="bower_components/angular-file-upload/angular-file-upload.js"></script>
+  <script src="bower_components/angular-filter/dist/angular-filter.js"></script>
+  <script src="bower_components/sweetalert/lib/sweet-alert.js"></script>
+  <script src="bower_components/angular-sweetalert/SweetAlert.js"></script>
+  <script src="bower_components/angular-gravatar/build/md5.js"></script>
+  <script src="bower_components/angular-gravatar/build/angular-gravatar.js"></script>
+  <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+  <script src="bower_components/angular-bootstrap-nav-tree/dist/abn_tree_directive.js"></script>
+  <script src="bower_components/codemirror/lib/codemirror.js"></script>
+  <script src="bower_components/codemirror/addon/mode/overlay.js"></script>
+  <script src="bower_components/codemirror/mode/gfm/gfm.js"></script>
+  <script src="bower_components/codemirror/mode/markdown/markdown.js"></script>
+  <script src="bower_components/angular-ui-codemirror/ui-codemirror.js"></script>
+  <script src="bower_components/showdown/compressed/showdown.js"></script>
+  <script src="bower_components/angular-markdown-directive/markdown.js"></script>
+  <script src="bower_components/angular-elastic/elastic.js"></script>
+  <script src="bower_components/angular-autoFields-bootstrap/autofields.min.js"></script>
+  <script src="bower_components/angular-autoFields-bootstrap/autofields-bootstrap.min.js"></script>
+  <script src="bower_components/angular-gettext/dist/angular-gettext.js"></script>
+  <script src="bower_components/angular-translate/angular-translate.js"></script>
+  <script src="bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.js"></script>
+  <script src="bower_components/angular-translate-loader-url/angular-translate-loader-url.js"></script>
+  <script src="bower_components/angular-ui-grid/ui-grid.js"></script>
   <script src="bower_components/angular-loading-bar/build/loading-bar.js"></script>
+  <script src="bower_components/Faker/build/build/faker.js"></script>
+  <script src="bower_components/angular-mocks/angular-mocks.js"></script>
+  <script src="bower_components/angular-scenario/angular-scenario.js"></script>
+  <script src="bower_components/tv4/tv4.js"></script>
+  <script src="bower_components/objectpath/lib/ObjectPath.js"></script>
+  <script src="bower_components/angular-schema-form/dist/schema-form.js"></script>
+  <script src="bower_components/angular-schema-form/dist/bootstrap-decorator.js"></script>
+  <script src="bower_components/angular-ui-select/dist/select.js"></script>
+  <script src="bower_components/underscore/underscore.js"></script>
+  <script src="bower_components/angular-schema-form-ui-select/ui-sortable.js"></script>
+  <script src="bower_components/angular-schema-form-ui-select/angular-underscore.js"></script>
+  <script src="bower_components/angular-schema-form-ui-select/bootstrap-ui-select.min.js"></script>
 
   <script src="js/app.js"></script>
   <script src="js/config.js"></script>
   <script src="js/services/lb-services.js"></script>
-  
+
   <script src="/modules/core/app.core.js"></script>
   <script src="/modules/core/config/core.config.js"></script>
-  <script src="modules/core/controllers/main.ctrl.js"></script>
+  <script src="/modules/core/config/core.routes.js"></script>
+  <script src="/modules/core/controllers/home.ctrl.js"></script>
+  <script src="/modules/core/controllers/layout.ctrl.js"></script>
+  <script src="/modules/core/controllers/main.ctrl.js"></script>
+  <script src="/modules/core/controllers/router.ctrl.js"></script>
+  <script src="/modules/core/directives/admin-box.js"></script>
+  <script src="/modules/core/directives/admin-form.js"></script>
+  <script src="/modules/core/directives/admin-header.js"></script>
+  <script src="/modules/core/directives/date.js"></script>
+  <script src="/modules/core/directives/home.js"></script>
+  <script src="/modules/core/directives/navbar.js"></script>
+  <script src="/modules/core/directives/small-box.directive.js"></script>
+  <script src="/modules/core/helpers/FormHelper.js"></script>
+  <script src="/modules/core/services/api.service.js"></script>
   <script src="/modules/core/services/core.service.js"></script>
+  <script src="/modules/core/services/meta.service.js"></script>
   <script src="modules/users/app.users.js"></script>
   <script src="/modules/users/config/users.auth.js"></script>
   <script src="/modules/users/config/users.config.js"></script>
@@ -80,4 +134,5 @@
   -->
 
 </body>
+
 </html>
