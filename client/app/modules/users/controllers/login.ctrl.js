@@ -11,7 +11,7 @@
    **/
   angular
     .module('com.module.users')
-    .controller('LoginCtrl', function ($scope, $routeParams, $location, CoreService, User, AppAuth, AuthProvider) {
+    .controller('LoginCtrl', function ($scope, $routeParams, $location, CoreService, Usuario, AppAuth, AuthProvider) {
 
       var TWO_WEEKS = 1000 * 60 * 60 * 24 * 7 * 2;
 
@@ -83,13 +83,12 @@
 
       $scope.login = function () {
 
-
-        $scope.loginResult = User.login({
+        $scope.loginResult = Usuario.login({
             include: 'user',
             rememberMe: $scope.credentials.rememberMe
           }, $scope.credentials,
           function (user) {
-
+            
             console.log(user.id); // => acess token
             console.log(user.ttl); // => 1209600 time to live
             console.log(user.created); // => 2013-12-20T21:10:20.377Z

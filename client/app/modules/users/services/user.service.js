@@ -2,20 +2,20 @@
   'use strict';
   angular
     .module('com.module.users')
-    .service('UserService', function ($state, CoreService, User) {
+    .service('UserService', function ($state, CoreService, Usuario) {
 
       this.find = function () {
-        return User.find().$promise;
+        return Usuario.find().$promise;
       };
 
       this.findById = function (id) {
-        return User.findById({
+        return Usuario.findById({
           id: id
         }).$promise;
       };
 
       this.upsert = function (user) {
-        return User.upsert(user).$promise
+        return Usuario.upsert(user).$promise
           .then(function () {
             CoreService.toastSuccess(
               'User saved',
@@ -36,7 +36,7 @@
           'Are you sure?',
           'Deleting this cannot be undone',
           function () {
-            User.deleteById({id: id}, function () {
+            Usuario.deleteById({id: id}, function () {
               CoreService.toastSuccess(
                 'User deleted',
                 'Your user is deleted!');

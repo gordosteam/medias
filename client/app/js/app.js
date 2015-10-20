@@ -7,6 +7,7 @@
     'lbServices',
     'ngRoute',
     'ngCookies',
+    'autofields', 
     'oitozero.ngSweetAlert',
     'ngAnimate',
     'config',

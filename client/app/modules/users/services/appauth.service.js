@@ -6,11 +6,11 @@
 
   angular
     .module('com.module.users')
-    .factory('AppAuth', function ($cookies, User, LoopBackAuth, $http) {
+    .factory('AppAuth', function ($cookies, Usuario, LoopBackAuth, $http) {
       var self = {
         login: function (data, cb) {
           LoopBackAuth.currentUserId = LoopBackAuth.accessTokenId = null;
-          $http.post('/api/users/login?include=user', {
+          $http.post('/api/usuarios/login?include=user', {
             email: data.email,
             password: data.password
           })
@@ -33,7 +33,7 @@
                 cb({});
               }
             }, function () {
-              console.log('User.login() err', arguments);
+              console.log('Usuario.login() err', arguments);
               LoopBackAuth.currentUserId = LoopBackAuth.accessTokenId =
                 null;
               LoopBackAuth.save();
@@ -43,7 +43,7 @@
 
         logout: function (cb) {
           //Destroy the access token.
-          User.logout({"access_token": LoopBackAuth.accessTokenId}, function () {
+          Usuario.logout({"access_token": LoopBackAuth.accessTokenId}, function () {
             //Destory both cookies that get created.
             delete $cookies["access_token"];
             delete $cookies["accessToken"];

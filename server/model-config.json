@@ -32,6 +32,10 @@
     "dataSource": "db",
     "public": false
   },
+  "AuthProvider": {
+    "dataSource": "db",
+    "public": true
+  },
   "usuario": {
     "dataSource": "db",
     "public": true
@@ -45,6 +49,10 @@
     "public": true
   },
   "carro": {
+    "dataSource": "db",
+    "public": true
+  },
+  "sata": {
     "dataSource": "db",
     "public": true
   }

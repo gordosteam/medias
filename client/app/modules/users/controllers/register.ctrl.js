@@ -11,7 +11,7 @@
    **/
   angular
     .module('com.module.users')
-    .controller('RegisterCtrl', function ($scope, $routeParams, $location, $filter, CoreService, User, AppAuth) {
+    .controller('RegisterCtrl', function ($scope, $routeParams, $location, $filter, CoreService, Usuario, AppAuth) {
 
       $scope.registration = {
         firstName: '',
@@ -109,10 +109,10 @@
 
         $scope.registration.username = $scope.registration.email;
         delete $scope.registration.confirmPassword;
-        $scope.user = User.save($scope.registration,
+        $scope.user = Usuario.save($scope.registration,
           function () {
 
-            $scope.loginResult = User.login({
+            $scope.loginResult = Usuario.login({
                 include: 'user',
                 rememberMe: true
               }, $scope.registration,
