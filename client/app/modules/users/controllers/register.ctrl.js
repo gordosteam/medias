@@ -118,13 +118,13 @@
               }, $scope.registration,
               function () {
                 AppAuth.currentUser = $scope.loginResult.user;
-                CoreService.toastSuccess('Registered', 
-                  'You are registered!');
+                CoreService.toastSuccess('Registrado', 
+                  'Você está registrado!');
                 $location.path('/');
               },
               function (res) {
                 CoreService.toastWarning(
-                  'Error signin in after registration!', res.data.error
+                  'Erro Logando após o registro!', res.data.error
                   .message);
                 $scope.loginError = res.data.error;
               }
@@ -133,7 +133,7 @@
           },
           function (res) {
             CoreService.toastError(
-              'Error registering!', res.data.error.message);
+              'Error registrando!', res.data.error.message);
             $scope.registerError = res.data.error;
           }
         );

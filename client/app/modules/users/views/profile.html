@@ -3,7 +3,7 @@
     <form name="form">
       <div class="panel panel-default">
         <div class="panel-heading">
-          Your profile
+          Seu cadastro
         </div>
         <div class="panel-body">
           <formly-form model="ctrl.user" fields="ctrl.formFields" options="ctrl.formOptions"></formly-form>
@@ -11,7 +11,7 @@
         <div class="panel-footer">
           <button type="submit" class="btn btn-primary btn-success" ng-click="ctrl.submit()"
                   ng-disabled="form.$invalid">
-            Submit
+            OK
           </button>
           <button type="button" class="btn btn-default" ng-click="ctrl.formOptions.resetModel()">Reset</button>
         </div>
@@ -21,11 +21,11 @@
   <div class="col-md-2">
     <div class="panel panel-default">
       <div class="panel-heading">
-        {{ 'Your Gravatar'}}
+        {{ 'Seu Gravatar'}}
       </div>
       <div class="panel-body">
         <img gravatar-src="user.email" class="img-circle" alt="User Image" gravatar-size="150">
-        <h4><a href="http://gravatar.com" target="_blank">Change it here!</a></h4>
+        <h4><a href="http://gravatar.com" target="_blank">Troque aqui!</a></h4>
       </div>
     </div>
   </div>

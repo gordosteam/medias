@@ -18,14 +18,14 @@
         return Usuario.upsert(user).$promise
           .then(function () {
             CoreService.toastSuccess(
-              'User saved',
-              'Your user is safe with us!'
+              'Usuário Salvo',
+              'Usuário Salvo!'
             );
           })
           .catch(function (err) {
             CoreService.toastError(
-              'Error saving user ',
-              'This user could no be saved: ' + err
+              'Erro Salvando usuário',
+              'Este usuário não pode ser salvo: ' + err
             );
           }
         );
@@ -33,18 +33,18 @@
 
       this.delete = function (id, successCb, cancelCb) {
         CoreService.confirm(
-          'Are you sure?',
-          'Deleting this cannot be undone',
+          'Tem certeza?',
+          'Não podera ser desfeito',
           function () {
             Usuario.deleteById({id: id}, function () {
               CoreService.toastSuccess(
-                'User deleted',
-                'Your user is deleted!');
+                'Usuário deletado',
+                'Seu usuário foi deletado!');
               successCb();
             }, function (err) {
               CoreService.toastError(
-                'Error deleting user',
-                'Your user is not deleted! ' + err);
+                'Erro deletando usuário',
+                'Seu usuário não foi deletado! ' + err);
               cancelCb();
             });
           },

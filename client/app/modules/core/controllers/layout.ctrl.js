@@ -11,7 +11,7 @@
 	 * @requires CoreService
 	 * @requires gettextCatalog
 	 **/
-		.controller('LayoutCtrl', function ($scope, $rootScope, $cookies, CoreService, gettextCatalog) {
+		.controller('LayoutCtrl', function ($scope, $rootScope, $cookies, CoreService) {
 
 			// angular translate
 			$scope.locale = {
@@ -31,7 +31,7 @@
 				// You can change the language during runtime
 				$scope.locale.isopen = !$scope.locale.isopen;
 
-				gettextCatalog.setCurrentLanguage($scope.locale.lang);
+	
 			};
 
 			$scope.appName = 'LoopBack Admin';
@@ -75,7 +75,7 @@
 
 			$scope.settings = $rootScope.settings;
 
-			$rootScope.loadSettings();
+			//$rootScope.loadSettings();
 
 		});
 

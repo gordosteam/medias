@@ -36,9 +36,9 @@
             ngMinlength: 4
           },
           msgs: {
-            required: 'You need an email address',
-            email: 'Email address needs to be valid',
-            valid: 'Nice email address!'
+            required: 'Você precisa de um email',
+            email: 'Email precisa ser válido',
+            valid: 'Email válido!'
           }
         },
         {
@@ -52,7 +52,7 @@
         },
         {
           property: 'rememberMe',
-          label: 'Stay signed in',
+          label: 'Fique conectado',
           type: 'checkbox'
         }
       ];
@@ -96,9 +96,9 @@
 
             var next = $location.nextAfterLogin || '/';
             $location.nextAfterLogin = null;
-            AppAuth.currentUser = $scope.loginResult.user;
-            CoreService.toastSuccess('Logged in',
-              'You are logged in!');
+            AppAuth.currentUser = $scope.loginResult.user;         
+            CoreService.toastSuccess('Logado',
+              'Você está logado!');
             if (next === '/login') {
               next = '/';
             }

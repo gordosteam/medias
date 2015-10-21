@@ -1,47 +1,45 @@
-<!DOCTYPE html>
-<html lang="en" ng-app="app">
+<!doctype html>
+<html ng-app="app" ng-controller="LayoutCtrl">
 
 <head>
   <meta charset="utf-8">
-  <title>My Gas Notification</title>
+  <title>Admin: {{ getSetting('appName') }}</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width">
+  <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
-  <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet" />
-  <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.5/paper/bootstrap.min.css" rel="stylesheet">
+  <!-- build:css styles/vendor.css -->
+  <!-- bower:css -->
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+  <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css" />
   <link rel="stylesheet" href="bower_components/angular-toasty/css/ng-toasty.css" />
   <link rel="stylesheet" href="bower_components/sweetalert/lib/sweet-alert.css" />
-  <link href="css/app-login.css" rel="stylesheet">
-  <!--<link href="css/app.css" rel="stylesheet">-->
+  <link rel="stylesheet" href="bower_components/ionicons/css/ionicons.css" />
+  <link rel="stylesheet" href="bower_components/angular-bootstrap-nav-tree/dist/abn_tree.css" />
+  <link rel="stylesheet" href="bower_components/codemirror/lib/codemirror.css" />
+  <link rel="stylesheet" href="bower_components/codemirror/theme/monokai.css" />
+  <link rel="stylesheet" href="bower_components/angular-ui-grid/ui-grid.css" />
+  <link rel="stylesheet" href="bower_components/flag-icon-css/css/flag-icon.min.css" />
+  <link rel="stylesheet" href="bower_components/angular-loading-bar/build/loading-bar.css" />
+  <link rel="stylesheet" href="bower_components/angular-ui-select/dist/select.css" />
+  <!-- endbower -->
+  <!-- endbuild -->
+  <!-- build:css styles/main.css -->
+  <link rel="stylesheet" href="/css/AdminLTE.css" />
+  <link rel="stylesheet" href="/css/main.css" />
+
+  <!-- endbuild -->
 </head>
 
-<body>
-  <!--<header>
-    <h1>Coffee shop reviews</h1>
-    <h2 ng-show="currentUser">Hello {{currentUser.email}}</h2>
-    <nav>
-      <ul>
-        <li>
-          <a ui-sref="all-reviews" ui-sref-active="active">All reviews</a>
-        </li>
-        <li ng-hide="currentUser">
-          <a ui-sref="sign-up" ui-sref-active="active">Sign up</a>
-        </li>
-        <li ng-show="currentUser">
-          <a ui-sref="my-reviews" ui-sref-active="active">My Reviews</a>
-        </li>
-        <li ng-show="currentUser">
-          <a ui-sref="add-review" ui-sref-active="active">Add Review</a>
-        </li>
-        <li ng-hide="currentUser">
-          <a ui-sref="login" ui-sref-active="active">Log in</a>
-        </li>
-        <li ng-show="currentUser">
-          <a ui-sref="logout" ui-sref-active="active">Log out</a>
-        </li>
-      </ul>
-    </nav>
-  </header>-->
+<body class="{{getSetting('appTheme') }} {{ getSetting('appLayout') }} " ng-controller="MainCtrl">
+  <!--[if lt IE 7]>
+<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
+  <div ui-view ng-class="{'full-height': currentUser.id === undefined}"></div>
 
-  <main ui-view></main>
+  <div ng-controller="toasty-controller">
+    <toasty-container toasty-defaults='{"timeout": 3000, "close-button":true, "sound": false}'></toasty-container>
+  </div>
 
   <script src="bower_components/jquery/dist/jquery.js"></script>
   <script src="bower_components/angular/angular.js"></script>

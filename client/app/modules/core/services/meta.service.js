@@ -2,7 +2,7 @@
   'use strict';
   angular
     .module('com.module.core')
-    .service('MetaService', function ($injector, CoreService, Meta, gettextCatalog) {
+    .service('MetaService', function ($injector, CoreService, Meta) {
 
       this.find = function () {
         return Meta.getModels().$promise;
@@ -52,7 +52,7 @@
         return result;
       };
 
-      function getModelField (propertyName, property) {
+      function getModelField(propertyName, property) {
         return {
           key: propertyName,
           type: getModelFieldType(property),
@@ -64,7 +64,7 @@
         };
       }
 
-      function getModelFieldType (property) {
+      function getModelFieldType(property) {
         var result = 'input';
         if (property.meta !== undefined && property.meta.formType !== undefined) {
           result = property.meta.formType;
@@ -77,42 +77,41 @@
         return Model.upsert(item).$promise
           .then(function () {
             CoreService.toastSuccess(
-              gettextCatalog.getString('Item saved'),
-              gettextCatalog.getString('Your item is safe with us!')
-            );
+              'Item salvo',
+              'Seu Item está salvo!'
+              );
           })
           .catch(function (err) {
             CoreService.toastError(
-              gettextCatalog.getString('Error saving item '),
-              gettextCatalog.getString('This item could no be saved: ' + err)
-            );
+              'Erro salvando item',
+              'Este item não pode ser salvo: ' + err
+              );
           }
-        );
+            );
       };
 
       this.delete = function (modelName, modelId, successCb, cancelCb) {
         var Model = this.getModelInstance(modelName);
 
-        CoreService.confirm(
-          gettextCatalog.getString('Are you sure?'),
-          gettextCatalog.getString('Deleting this cannot be undone'),
+        CoreService.confirm('Tem certeza?',
+          'Deletando não terá como reverter',
           function () {
-            Model.deleteById({id: modelId}).$promise.then(function () {
+            Model.deleteById({ id: modelId }).$promise.then(function () {
               CoreService.toastSuccess(
-                gettextCatalog.getString('Item deleted'),
-                gettextCatalog.getString('Your item is deleted!'));
+                'Item deletado',
+                'Seu Item foi deletado!');
               successCb();
             }).catch(function (err) {
               CoreService.toastError(
-                gettextCatalog.getString('Error deleting item'),
-                gettextCatalog.getString('Your item is not deleted! ') + err);
+                'Oops',
+                'Erro deletando item: ' + err);
               cancelCb();
             });
           },
           function () {
             cancelCb();
           }
-        );
+          );
       };
 
     });

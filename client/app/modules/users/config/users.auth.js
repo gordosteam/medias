@@ -20,8 +20,8 @@
                 if ($location.path() !== '/register') {
                   $location.path('/login');
                 }
-                CoreService.toastWarning('Error 401 received',
-                  'We received a 401 error from the API! Redirecting to login'
+                CoreService.toastWarning('Erro 401 recebido',
+                  'Redicionando para o login'
                 );
               }
             }

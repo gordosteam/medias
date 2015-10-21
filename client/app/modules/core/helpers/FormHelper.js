@@ -3,7 +3,7 @@
 
   angular
     .module('com.module.core')
-    .factory('FormHelper', function ($state, CoreService, gettextCatalog) {
+    .factory('FormHelper', function ($state, CoreService) {
 
       return function (model) {
 
@@ -20,18 +20,18 @@
          */
         this.delete = function (id) {
 
-          CoreService.confirm(gettextCatalog.getString('Are you sure?'),
-            gettextCatalog.getString('Deleting this cannot be undone'),
+          CoreService.confirm('Tem certeza?',
+            'Deletando não terá como reverter',
             function () {
               this.model.deleteById(id, function () {
-                CoreService.toastSuccess(gettextCatalog.getString(
-                  'Item deleted'), gettextCatalog.getString(
-                  'Your item has been deleted!'));
+                CoreService.toastSuccess(
+                  'Item deletado', 
+                  'Seu Item foi deletado!');
                 $state.reload();
               }, function (err) {
-                CoreService.toastError(gettextCatalog.getString(
-                  'Oops'), gettextCatalog.getString(
-                    'Error deleting item: ') + err);
+                CoreService.toastError(
+                  'Oops', 
+                    'Erro deletando item: ' + err);
               });
             },
             function () {

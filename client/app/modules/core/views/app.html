@@ -13,7 +13,7 @@
           <div class="pull-left info">
             <p>
               <a href="" ui-sref="app.users.profile">
-                {{ 'Hello,' | translate }} {{currentUser.firstName || currentUser.profiles[0].profile.name.givenName}}
+                {{ 'Hello,' }} {{currentUser.firstName || currentUser.profiles[0].profile.name.givenName}}
               </a>
             </p>
 
@@ -24,7 +24,7 @@
         </div>
         <ul class="sidebar-menu">
           <li ng-repeat="item in menuoptions" ui-sref-active="active">
-            <a class="" href="" ui-sref="{{item.sref}}"><i class="fa fa-fw {{item.icon}}"></i> {{item.name | translate}}</a>
+            <a class="" href="" ui-sref="{{item.sref}}"><i class="fa fa-fw {{item.icon}}"></i> {{item.name}}</a>
           </li>
         </ul>
       </section>
